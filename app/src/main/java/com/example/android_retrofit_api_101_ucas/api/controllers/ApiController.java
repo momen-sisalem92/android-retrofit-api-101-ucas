@@ -7,18 +7,16 @@ import com.example.android_retrofit_api_101_ucas.api.RetrofitSettings;
 
 public class ApiController {
 
-    private Context context;
     private RetrofitRequests retrofitRequests;
     private static ApiController instance;
 
-    private ApiController(Context context) {
-        this.context = context;
+    private ApiController() {
         retrofitRequests = RetrofitSettings.getInstance().create(RetrofitRequests.class);
     }
 
-    public static synchronized ApiController getInstance(Context context) {
+    public static synchronized ApiController getInstance() {
         if(instance == null) {
-            instance = new ApiController(context);
+            instance = new ApiController();
         }
         return instance;
     }

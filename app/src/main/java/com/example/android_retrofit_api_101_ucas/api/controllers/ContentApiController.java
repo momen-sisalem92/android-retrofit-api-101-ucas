@@ -15,7 +15,7 @@ public class ContentApiController {
     private ApiController apiController;
 
     public ContentApiController() {
-        apiController = ApiController.getInstance(AppController.getInstance());
+        apiController = ApiController.getInstance();
     }
 
     public void getUsers(ListCallback<User> callback) {

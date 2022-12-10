@@ -1,5 +1,7 @@
 package com.example.android_retrofit_api_101_ucas.api;
 
+import com.example.android_retrofit_api_101_ucas.prefs.AppSharedPreferences;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -39,7 +41,7 @@ public class RetrofitSettings {
                 Request.Builder builder = chain.request().newBuilder();
                 builder.addHeader("Accept", "application/json");
                 builder.addHeader("Content-Type", "application/json");
-                builder.addHeader("Token", "Bearer TOKEN");
+                builder.addHeader("Authorization", AppSharedPreferences.getInstance().getToken());
                 return chain.proceed(builder.build());
             }
         }).build();
