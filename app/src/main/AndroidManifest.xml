@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".AppController"
@@ -18,9 +19,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".UploadImageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".views.SplashActivity"
-            android:theme="@style/SplashNoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
